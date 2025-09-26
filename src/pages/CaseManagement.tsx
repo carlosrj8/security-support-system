@@ -18,15 +18,12 @@ import {
   DialogActions,
   Paper,
   Avatar,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Divider,
 } from '@mui/material';
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-} from '@mui/lab';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import {
   Add as AddIcon,
@@ -345,31 +342,33 @@ const CaseManagement: React.FC = () => {
                     <Typography variant="h6" gutterBottom>
                       Case History
                     </Typography>
-                    <Timeline>
+                    <List>
                       {caseHistory.map((item, index) => (
-                        <TimelineItem key={item.id}>
-                          <TimelineSeparator>
-                            <TimelineDot color={getTimelineColor(item.fromType)}>
-                              {getTimelineIcon(item.fromType)}
-                            </TimelineDot>
-                            {index < caseHistory.length - 1 && <TimelineConnector />}
-                          </TimelineSeparator>
-                          <TimelineContent>
-                            <Paper elevation={1} sx={{ p: 2, mb: 1 }}>
-                              <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                                {item.from}
-                              </Typography>
-                              <Typography variant="body2" sx={{ mb: 1 }}>
-                                {item.message}
-                              </Typography>
-                              <Typography variant="caption" color="text.secondary">
-                                {new Date(item.timestamp).toLocaleString()}
-                              </Typography>
-                            </Paper>
-                          </TimelineContent>
-                        </TimelineItem>
+                        <div key={item.id}>
+                          <ListItem alignItems="flex-start">
+                            <ListItemAvatar>
+                              <Avatar sx={{ bgcolor: item.fromType === 'client' ? 'primary.main' : 'secondary.main' }}>
+                                {getTimelineIcon(item.fromType)}
+                              </Avatar>
+                            </ListItemAvatar>
+                            <ListItemText
+                              primary={item.from}
+                              secondary={
+                                <>
+                                  <Typography variant="body2" sx={{ mb: 1 }}>
+                                    {item.message}
+                                  </Typography>
+                                  <Typography variant="caption" color="text.secondary">
+                                    {new Date(item.timestamp).toLocaleString()}
+                                  </Typography>
+                                </>
+                              }
+                            />
+                          </ListItem>
+                          {index < caseHistory.length - 1 && <Divider variant="inset" component="li" />}
+                        </div>
                       ))}
-                    </Timeline>
+                    </List>
                   </CardContent>
                 </Card>
               </Grid>
