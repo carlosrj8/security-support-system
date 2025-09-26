@@ -1,0 +1,51 @@
+{
+  "name": "security-support-system",
+  "version": "1.0.0",
+  "description": "Multi-agent security support system for electronic security operations",
+  "main": "index.js",
+  "scripts": {
+    "init": "node scripts/init-project.js",
+    "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "backend:dev": "cd backend && npm run start:dev",
+    "frontend:dev": "cd frontend && npm start",
+    "backend:build": "cd backend && npm run build",
+    "frontend:build": "cd frontend && npm run build",
+    "build": "npm run backend:build && npm run frontend:build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "test": "npm run backend:test && npm run frontend:test",
+    "backend:test": "cd backend && npm run test",
+    "frontend:test": "cd frontend && npm test",
+    "lint": "npm run backend:lint && npm run frontend:lint",
+    "backend:lint": "cd backend && npm run lint",
+    "frontend:lint": "cd frontend && npm run lint",
+    "start": "npm run backend:start",
+    "backend:start": "cd backend && npm run start:prod",
+    "vercel-build": "npm run build"
+  },
+  "keywords": [
+    "security",
+    "multi-agent",
+    "support",
+    "automation",
+    "nestjs",
+    "react",
+    "typescript"
+  ],
+  "author": "Security Support Team",
+  "license": "PROPRIETARY",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/security-support-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/security-support-system/issues"
+  },
+  "homepage": "https://github.com/your-org/security-support-system#readme"
+}
