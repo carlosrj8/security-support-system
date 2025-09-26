@@ -16,15 +16,17 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  Paper,
+  Avatar,
+} from '@mui/material';
+import {
   Timeline,
   TimelineItem,
   TimelineSeparator,
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-  Paper,
-  Avatar,
-} from '@mui/material';
+} from '@mui/lab';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import {
   Add as AddIcon,
