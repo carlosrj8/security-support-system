@@ -264,9 +264,13 @@ const CaseManagement: React.FC = () => {
             <DataGrid
               rows={cases}
               columns={columns}
-              pageSize={10}
-              rowsPerPageOptions={[10, 25, 50]}
-              disableSelectionOnClick
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 10 },
+                },
+              }}
+              pageSizeOptions={[10, 25, 50]}
+              disableRowSelectionOnClick
               sx={{
                 '& .MuiDataGrid-cell:hover': {
                   color: 'primary.main',
