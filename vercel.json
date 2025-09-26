@@ -1,20 +1,7 @@
 {
-  "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/build",
   "functions": {
-    "backend/src/main.ts": {
-      "runtime": "@vercel/node"
-    }
-  },
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/backend/src/main.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/build/$1"
-    }
-  ]
+    "api/*.ts": "@vercel/node"
+  }
 }

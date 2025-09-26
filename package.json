@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "init": "node scripts/init-project.js",
+    "deploy": "node scripts/auto-deploy.js",
+    "config": "node scripts/generate-config.js",
     "dev": "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
     "backend:dev": "cd backend && npm run start:dev",
     "frontend:dev": "cd frontend && npm start",
