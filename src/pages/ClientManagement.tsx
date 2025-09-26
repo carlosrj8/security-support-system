@@ -255,9 +255,13 @@ const ClientManagement: React.FC = () => {
             <DataGrid
               rows={clients}
               columns={columns}
-              pageSize={10}
-              rowsPerPageOptions={[10, 25, 50]}
-              disableSelectionOnClick
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 10 },
+                },
+              }}
+              pageSizeOptions={[10, 25, 50]}
+              disableRowSelectionOnClick
             />
           </Box>
         </CardContent>
